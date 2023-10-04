@@ -14,8 +14,10 @@ public class CoffeeMakerTest {
         CoffeeAbstractFactory  espressoFactory = new EspressoFactory(CoffeeType.ESPRESSO, 7, 37);
         String result = "Coffee{coffeeType=ESPRESSO, ingredients=[Ingredient{name='BEANS', quantity=7, unit=GR}, Ingredient{name='WATER', quantity=37, unit=ML}]}";
         DrinkMaker drinkMaker = new DrinkMaker();
+
         // when
         Coffee espresso = drinkMaker.makeCoffee(espressoFactory);
+
         //then
         Assertions.assertEquals(result, espresso.toString());
     }
@@ -26,6 +28,7 @@ public class CoffeeMakerTest {
         // given
         CoffeeAbstractFactory  espressoFactory = new EspressoFactory(CoffeeType.ESPRESSO, 100, 37);
         DrinkMaker drinkMaker = new DrinkMaker();
+
         // when
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> drinkMaker.makeCoffee(espressoFactory));
 
@@ -40,6 +43,7 @@ public class CoffeeMakerTest {
         CoffeeAbstractFactory  americanoFactory = new AmericanoFactory(CoffeeType.AMERICANO, 7, 100);
         String result = "Coffee{coffeeType=AMERICANO, ingredients=[Ingredient{name='BEANS', quantity=7, unit=GR}, Ingredient{name='WATER', quantity=100, unit=ML}]}";
         DrinkMaker drinkMaker = new DrinkMaker();
+
         // when
         Coffee americano = drinkMaker.makeCoffee(americanoFactory);
 

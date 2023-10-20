@@ -10,14 +10,14 @@ public class Americano extends Coffee {
     public Americano() {
         super();
     }
-/*
+
     @Override
     public Coffee createCoffee(CoffeeType coffeeType, List<Ingredient> ingredients) {
         if(!isValid(coffeeType, ingredients)) {
             throw new IllegalArgumentException("Ingredients is not valid");
         }
         return new Americano(coffeeType, ingredients);
-    }*/
+    }
 
     private boolean isValid(CoffeeType coffeeType, List<Ingredient> ingredients) {
         return coffeeType.equals(CoffeeType.AMERICANO)
@@ -28,6 +28,4 @@ public class Americano extends Coffee {
     private boolean ingredientInListIsValid(List<Ingredient> ingredients, IngredientName name, int quantity, Unit unit) {
         return ingredients.stream().anyMatch(i -> i.getName().equals(name) && i.getQuantity() == quantity && i.getUnit().equals(unit));
     }
-
-
 }

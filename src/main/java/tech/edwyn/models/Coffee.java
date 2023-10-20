@@ -7,7 +7,7 @@ import java.util.List;
  * Contains ingredients only.
  * As an example, an espresso will contain 7g of beans ingredient and 37ml of water ingredient.
  */
-public abstract class Coffee {
+public abstract class Coffee implements MakeCoffeeStrategy {
 
     protected CoffeeType coffeeType;
     protected List<Ingredient> ingredients;

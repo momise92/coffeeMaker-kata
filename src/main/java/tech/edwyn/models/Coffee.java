@@ -1,5 +1,7 @@
 package tech.edwyn.models;
 
+import tech.edwyn.models.enums.CoffeeType;
+
 import java.util.List;
 
 /**

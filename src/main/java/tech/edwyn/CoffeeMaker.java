@@ -1,7 +1,7 @@
 package tech.edwyn;
 
 import tech.edwyn.models.Coffee;
-import tech.edwyn.models.MakeCoffeeStrategy;
+import tech.edwyn.strategy.MakeCoffeeStrategy;
 
 public interface CoffeeMaker {
 

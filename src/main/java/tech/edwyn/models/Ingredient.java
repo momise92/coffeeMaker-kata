@@ -1,6 +1,8 @@
 package tech.edwyn.models;
 
 import lombok.Data;
+import tech.edwyn.models.enums.IngredientName;
+import tech.edwyn.models.enums.Unit;
 
 @Data
 public class Ingredient {

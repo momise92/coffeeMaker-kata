@@ -1,5 +1,8 @@
 package tech.edwyn.models;
 
+import lombok.Data;
+
+@Data
 public class Ingredient {
 
     private IngredientName name;
@@ -21,7 +24,4 @@ public class Ingredient {
         sb.append('}');
         return sb.toString();
     }
-}
-enum IngredientName {
-    BEANS, WATER, MILK
 }

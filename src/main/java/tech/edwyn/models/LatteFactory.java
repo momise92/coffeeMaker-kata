@@ -1,6 +1,6 @@
 package tech.edwyn.models;
 
-public class LatteFactory implements CoffeeAbstractFactory {
+public class LatteFactory {
 
     private CoffeeType coffeeType;
     private int beans;
@@ -14,7 +14,6 @@ public class LatteFactory implements CoffeeAbstractFactory {
         this.milk = milk;
     }
 
-    @Override
     public Coffee createCoffee() {
         if(!isValid()) {
             throw new IllegalArgumentException("Ingredients is not valid");

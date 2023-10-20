@@ -10,5 +10,4 @@ public class Espresso extends Coffee {
                 new Ingredient(IngredientName.WATER, 37, Unit.ML)));
 
     }
-
 }

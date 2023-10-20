@@ -9,12 +9,15 @@ import java.util.List;
  */
 public abstract class Coffee {
 
-    private CoffeeType coffeeType;
-    private List<Ingredient> ingredients;
+    protected CoffeeType coffeeType;
+    protected List<Ingredient> ingredients;
 
     public Coffee(CoffeeType coffeeType, List<Ingredient> ingredients) {
         this.coffeeType = coffeeType;
         this.ingredients = ingredients;
+    }
+
+    public Coffee() {
     }
 
     @Override

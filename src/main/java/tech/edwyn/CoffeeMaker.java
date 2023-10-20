@@ -1,9 +1,9 @@
 package tech.edwyn;
 
 import tech.edwyn.models.Coffee;
-import tech.edwyn.models.CoffeeAbstractFactory;
+import tech.edwyn.models.MakeCoffeeStrategy;
 
 public interface CoffeeMaker {
 
-    Coffee makeCoffee(CoffeeAbstractFactory coffeeAbstractFactory);
+    Coffee makeCoffee(MakeCoffeeStrategy makeCoffeeStrategy);
 }

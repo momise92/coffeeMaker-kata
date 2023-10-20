@@ -1,12 +1,21 @@
 package tech.edwyn.models;
 
-import tech.edwyn.CoffeeMaker;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class DrinkMaker implements CoffeeMaker {
+import java.util.List;
 
 
-    @Override
-    public Coffee makeCoffee(CoffeeAbstractFactory coffeeAbstractFactory) {
-        return coffeeAbstractFactory.createCoffee();
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class DrinkMaker {
+    private CoffeeType coffeeType;
+    private List<Ingredient> ingredientList;
+
+
+    public Coffee makeCoffee(MakeCoffeeStrategy makeCoffeeStrategy) {
+        return makeCoffeeStrategy.createCoffee(coffeeType, ingredientList);
     }
 }

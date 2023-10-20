@@ -2,13 +2,13 @@ package tech.edwyn.models;
 
 public class LatteFactory implements CoffeeAbstractFactory {
 
-    private CoffeeType coffeeType;
-    private int beans;
-    private int water;
-    private int milk;
+    private final CoffeeType coffeeType;
+    private final int beans;
+    private final int water;
+    private final int milk;
 
-    public LatteFactory(CoffeeType coffeeType, int beans, int water, int milk) {
-        this.coffeeType = coffeeType;
+    public LatteFactory(int beans, int water, int milk) {
+        this.coffeeType = CoffeeType.LATTE;
         this.beans = beans;
         this.water = water;
         this.milk = milk;

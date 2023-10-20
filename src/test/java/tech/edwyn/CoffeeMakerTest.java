@@ -11,7 +11,7 @@ public class CoffeeMakerTest {
     public void shouldMakeCoffeeWithEspressoIngredient() {
 
         // given
-        CoffeeAbstractFactory  espressoFactory = new EspressoFactory(CoffeeType.ESPRESSO, 7, 37);
+        CoffeeAbstractFactory  espressoFactory = new EspressoFactory(7, 37);
         String result = "Coffee{coffeeType=ESPRESSO, ingredients=[Ingredient{name='BEANS', quantity=7, unit=GR}, Ingredient{name='WATER', quantity=37, unit=ML}]}";
         DrinkMaker drinkMaker = new DrinkMaker();
         // when
@@ -24,7 +24,7 @@ public class CoffeeMakerTest {
     public void shouldThrowExceptionWithCoffeeInvalidIngredient() {
 
         // given
-        CoffeeAbstractFactory  espressoFactory = new EspressoFactory(CoffeeType.ESPRESSO, 100, 37);
+        CoffeeAbstractFactory  espressoFactory = new EspressoFactory(100, 37);
         DrinkMaker drinkMaker = new DrinkMaker();
         // when
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> drinkMaker.makeCoffee(espressoFactory));
@@ -37,7 +37,7 @@ public class CoffeeMakerTest {
     public void shouldMakeCoffeeWithAmericanoIngredient() {
 
         // given
-        CoffeeAbstractFactory  americanoFactory = new AmericanoFactory(CoffeeType.AMERICANO, 7, 100);
+        CoffeeAbstractFactory  americanoFactory = new AmericanoFactory(7, 100);
         String result = "Coffee{coffeeType=AMERICANO, ingredients=[Ingredient{name='BEANS', quantity=7, unit=GR}, Ingredient{name='WATER', quantity=100, unit=ML}]}";
         DrinkMaker drinkMaker = new DrinkMaker();
         // when
@@ -52,7 +52,7 @@ public class CoffeeMakerTest {
     public void shouldMakeCoffeeWithLatteIngredient() {
 
         // given
-        CoffeeAbstractFactory  latteFactory = new LatteFactory(CoffeeType.LATTE, 7, 37, 170);
+        CoffeeAbstractFactory  latteFactory = new LatteFactory(7, 37, 170);
         String result = "Coffee{coffeeType=LATTE, ingredients=[Ingredient{name='beans', quantity=7, unit=GR}, " +
                 "Ingredient{name='WATER', quantity=37, unit=ML}, " +
                 "Ingredient{name='MILK', quantity=170, unit=ML}]}";

@@ -2,9 +2,9 @@ package tech.edwyn.models;
 
 public class Ingredient {
 
-    private IngredientName name;
-    private int quantity;
-    private Unit unit;
+    private final IngredientName name;
+    private final int quantity;
+    private final Unit unit;
 
     public Ingredient(IngredientName name, int quantity, Unit unit) {
         this.name = name;

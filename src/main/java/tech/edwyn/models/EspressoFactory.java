@@ -3,11 +3,11 @@ package tech.edwyn.models;
 public class EspressoFactory implements CoffeeAbstractFactory {
 
     private CoffeeType coffeeType;
-    private int beans;
-    private int water;
+    private final int beans;
+    private final int water;
 
-    public EspressoFactory(CoffeeType coffeeType, int beans, int water) {
-        this.coffeeType = coffeeType;
+    public EspressoFactory(int beans, int water) {
+        this.coffeeType = CoffeeType.ESPRESSO;
         this.beans = beans;
         this.water = water;
     }
@@ -22,9 +22,6 @@ public class EspressoFactory implements CoffeeAbstractFactory {
 
 
     private boolean isValid() {
-        if (coffeeType.equals(CoffeeType.ESPRESSO) && beans == 7 && water == 37) {
-            return true;
-        }
-        return false;
+        return coffeeType.equals(CoffeeType.ESPRESSO) && beans == 7 && water == 37;
     }
 }

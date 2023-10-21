@@ -11,6 +11,7 @@ import tech.edwyn.strategy.EspressoStrategy;
 import tech.edwyn.strategy.LatteStrategy;
 import tech.edwyn.strategy.MakeCoffeeStrategy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,8 +23,9 @@ public class CoffeeMakerTest {
         // given
         MakeCoffeeStrategy espressoStrategy = new EspressoStrategy();
 
-        List<Ingredient> ingredients = List.of(new Ingredient(IngredientName.BEANS, 7, Unit.GR),
-                new Ingredient(IngredientName.WATER, 37, Unit.ML));
+        List<Ingredient> ingredients = new ArrayList<>();
+        ingredients.add(new Ingredient(IngredientName.BEANS, 7, Unit.GR));
+        ingredients.add(new Ingredient(IngredientName.WATER, 37, Unit.ML));
 
         DrinkMaker drinkMaker = new DrinkMaker(CoffeeType.ESPRESSO, ingredients);
 

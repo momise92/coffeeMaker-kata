@@ -19,13 +19,15 @@ public class EspressoStrategy implements MakeCoffeeStrategy {
     }
 
     private boolean isValid(CoffeeType coffeeType, List<Ingredient> ingredients) {
-        return coffeeType.equals(CoffeeType.ESPRESSO)
-                && ingredientInListIsValid(ingredients, IngredientName.BEANS, 7, Unit.GR)
-                && ingredientInListIsValid(ingredients, IngredientName.WATER, 37, Unit.ML);
+        ingredientInListIsValid(ingredients, IngredientName.BEANS, 7, Unit.GR);
+        ingredientInListIsValid(ingredients, IngredientName.WATER, 37, Unit.ML);
+
+        return coffeeType.equals(CoffeeType.ESPRESSO) && ingredients.isEmpty();
     }
 
-    private boolean ingredientInListIsValid(List<Ingredient> ingredients, IngredientName name, int quantity, Unit unit) {
-        return ingredients.stream().anyMatch(i -> i.getName().equals(name) && i.getQuantity() == quantity && i.getUnit().equals(unit));
+    private void ingredientInListIsValid(List<Ingredient> ingredients, IngredientName name, int quantity, Unit unit) {
+        ingredients.removeIf(i -> i.getName().equals(name) && i.getQuantity() == quantity && i.getUnit().equals(unit));
     }
 
 }
+

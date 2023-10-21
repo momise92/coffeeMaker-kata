@@ -1,5 +1,7 @@
 package tech.edwyn.models;
 
+import tech.edwyn.models.enums.CoffeeType;
+
 import java.util.List;
 
 /**
@@ -7,7 +9,7 @@ import java.util.List;
  * Contains ingredients only.
  * As an example, an espresso will contain 7g of beans ingredient and 37ml of water ingredient.
  */
-public abstract class Coffee implements MakeCoffeeStrategy {
+public abstract class Coffee {
 
     protected CoffeeType coffeeType;
     protected List<Ingredient> ingredients;
@@ -17,8 +19,7 @@ public abstract class Coffee implements MakeCoffeeStrategy {
         this.ingredients = ingredients;
     }
 
-    public Coffee() {
-    }
+    public abstract void make();
 
     @Override
     public String toString() {

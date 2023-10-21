@@ -1,8 +1,6 @@
 package tech.edwyn.models;
 
-import java.util.List;
-
 public interface MakeCoffeeStrategy {
 
-    Coffee createCoffee(CoffeeType coffeeType, List<Ingredient> ingredients);
+    void createCoffee(Coffee coffee);
 }

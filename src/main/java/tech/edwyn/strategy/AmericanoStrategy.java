@@ -7,6 +7,7 @@ import tech.edwyn.models.enums.CoffeeType;
 import tech.edwyn.models.enums.IngredientName;
 import tech.edwyn.models.enums.Unit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AmericanoStrategy implements MakeCoffeeStrategy {
@@ -20,12 +21,14 @@ public class AmericanoStrategy implements MakeCoffeeStrategy {
     }
 
     private boolean isValid(CoffeeType coffeeType, List<Ingredient> ingredients) {
-        return coffeeType.equals(CoffeeType.AMERICANO)
-                && ingredientInListIsValid(ingredients, IngredientName.BEANS, 7, Unit.GR)
-                && ingredientInListIsValid(ingredients, IngredientName.WATER, 100, Unit.ML);
+        List<Ingredient> copyIngredients =  new ArrayList<>(ingredients);
+        ingredientInListIsValid(copyIngredients, IngredientName.BEANS, 7, Unit.GR);
+        ingredientInListIsValid(copyIngredients, IngredientName.WATER, 100, Unit.ML);
+
+        return coffeeType.equals(CoffeeType.AMERICANO) && copyIngredients.isEmpty();
     }
 
-    private boolean ingredientInListIsValid(List<Ingredient> ingredients, IngredientName name, int quantity, Unit unit) {
-        return ingredients.stream().anyMatch(i -> i.getName().equals(name) && i.getQuantity() == quantity && i.getUnit().equals(unit));
+    private void ingredientInListIsValid(List<Ingredient> ingredients, IngredientName name, int quantity, Unit unit) {
+        ingredients.removeIf(i -> i.getName().equals(name) && i.getQuantity() == quantity && i.getUnit().equals(unit));
     }
 }
